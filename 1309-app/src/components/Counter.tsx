@@ -64,6 +64,8 @@ export function Counter() {
     (totalMs / MS_PER_MINUTE) * HEARTBEATS_PER_MINUTE,
   )
 
+  // check this parts and add plural to the words 
+  
   const cards = [
     { label: 'Anos', value: diff.years },
     { label: 'Meses', value: diff.months },
@@ -72,7 +74,6 @@ export function Counter() {
     { label: 'Minutos', value: pad(diff.minutes) },
     { label: 'Segundos', value: pad(diff.seconds) },
   ]
-
 
   return (
     <section className="counter">
