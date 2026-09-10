@@ -10,6 +10,7 @@ const START = new Date(2024, 8, 13, 19, 0, 0, 0)
 
 const br = (n: number) => n.toLocaleString('pt-BR')
 const pad = (n: number) => String(n).padStart(2, '0')
+const plural = (n: number, one: string, many: string) => (n === 1 ? one : many)
 
 function getDiff(begin: Date, end: Date): Diff {
   let yearDiff = end.getFullYear() - begin.getFullYear()
@@ -64,15 +65,33 @@ export function Counter() {
     (totalMs / MS_PER_MINUTE) * HEARTBEATS_PER_MINUTE,
   )
 
-  // check this parts and add plural to the words 
-  
   const cards = [
-    { label: 'Anos', value: diff.years },
-    { label: 'Meses', value: diff.months },
-    { label: 'Dias', value: diff.days },
-    { label: 'Horas', value: pad(diff.hours) },
-    { label: 'Minutos', value: pad(diff.minutes) },
-    { label: 'Segundos', value: pad(diff.seconds) },
+    {
+      id: 'years',
+      label: plural(diff.years, 'Ano', 'Anos'),
+      value: diff.years,
+    },
+    {
+      id: 'months',
+      label: plural(diff.months, 'Mês', 'Meses'),
+      value: diff.months,
+    },
+    { id: 'days', label: plural(diff.days, 'Dia', 'Dias'), value: diff.days },
+    {
+      id: 'hours',
+      label: plural(diff.hours, 'Hora', 'Horas'),
+      value: pad(diff.hours),
+    },
+    {
+      id: 'minutes',
+      label: plural(diff.minutes, 'Minuto', 'Minutos'),
+      value: pad(diff.minutes),
+    },
+    {
+      id: 'seconds',
+      label: plural(diff.seconds, 'Segundo', 'Segundos'),
+      value: pad(diff.seconds),
+    },
   ]
 
   return (
@@ -80,8 +99,8 @@ export function Counter() {
       <div className="section-title">Nosso tempo juntos</div>
 
       <div className="cards">
-        {cards.map(({ label, value }) => (
-          <div className="card" key={label}>
+        {cards.map(({ id, label, value }) => (
+          <div className="card" key={id}>
             <span className="num">{value}</span>
             <span className="lbl">{label}</span>
           </div>
