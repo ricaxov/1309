@@ -237,6 +237,93 @@ h1 em {
   font-variant-numeric: tabular-nums;
 }
 
+.bouquet {
+  text-align: center;
+  margin-bottom: 64px;
+  user-select: none;
+}
+
+.bouquet-heading {
+  margin-bottom: 24px;
+}
+
+.bouquet-heading .overline {
+  margin-bottom: 10px;
+}
+
+.bouquet-heading h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: clamp(1.7rem, 5vw, 2.3rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--wine);
+}
+
+.bouquet-heading h2::before,
+.bouquet-heading h2::after {
+  content: '';
+  flex: 0 1 44px;
+  height: 1px;
+  background: var(--pink-light);
+}
+
+.bouquet-stage,
+.bouquet-fallback {
+  position: relative;
+  height: min(460px, 70vh);
+  border: 1px solid rgba(232, 116, 140, 0.22);
+  border-radius: 24px;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    #fffdfb 0%,
+    #fbeff0 55%,
+    #f7e1e3 100%
+  );
+  box-shadow: 0 10px 30px rgba(140, 59, 82, 0.1);
+  overflow: hidden;
+}
+
+.bouquet-fallback {
+  margin-bottom: 64px;
+}
+
+.bouquet model-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+.ar-button {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--pink);
+  box-shadow: 0 6px 16px rgba(232, 116, 140, 0.35);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bouquet-hint {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 @media (max-width: 600px) {
   #root {
     padding-top: 40px;

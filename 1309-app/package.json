@@ -9,6 +9,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@google/model-viewer": "^4.3.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
