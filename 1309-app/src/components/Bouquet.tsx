@@ -1,5 +1,6 @@
 import '@google/model-viewer'
 import tulips from '../assets/bouquet/tulips.glb?url'
+import tulipsUsdz from '../assets/bouquet/tulips.usdz?url'
 
 export function Bouquet() {
   return (
@@ -12,6 +13,7 @@ export function Bouquet() {
       <div className="bouquet-stage">
         <model-viewer
           src={tulips}
+          iosSrc={tulipsUsdz}
           alt="Buquê de tulipas em 3D"
           ar
           arModes="webxr scene-viewer quick-look"

@@ -9,6 +9,7 @@ type ModelViewerProps = DetailedHTMLProps<
     Pick<
       ModelViewerElement,
       | 'src'
+      | 'iosSrc'
       | 'alt'
       | 'ar'
       | 'arModes'
